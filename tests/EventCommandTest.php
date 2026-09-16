@@ -39,7 +39,9 @@ final class EventCommandTest extends TestCase
 
         self::assertSame(0, $command->execute(Input::parse(['UserRegistered']), $output));
         self::assertFileExists($this->root . '/event/UserRegistered.php');
-        self::assertStringContainsString('namespace Event;', (string) \file_get_contents($this->root . '/event/UserRegistered.php'));
+        $source = (string) \file_get_contents($this->root . '/event/UserRegistered.php');
+        self::assertStringContainsString('namespace Event;', $source);
+        self::assertStringContainsString('public function __construct(public array $data = [])', $source);
     }
 
     public function testGeneratesEventInSpecifiedNamespace(): void
