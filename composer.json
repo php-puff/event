@@ -12,6 +12,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "puff/console": "dev-main",
         "puff/di": "dev-main"
     },
     "require-dev": {
@@ -33,6 +34,9 @@
         "puff": {
             "providers": [
                 "Puff\\Event\\ServiceProvider"
+            ],
+            "commands": [
+                "Puff\\Event\\ConsoleProvider"
             ]
         }
     },

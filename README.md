@@ -37,3 +37,13 @@ Listeners run synchronously in registration order. An exception stops dispatch
 and is propagated to the caller. The component does not provide queues, retries,
 durable delivery, delayed events or cross-process messaging; use `puff/job` for
 background work.
+
+## Generate an event
+
+```bash
+./puff event UserRegistered
+./puff event TokenIssued App\\Event
+```
+
+The first command creates `event/UserRegistered.php`. Use `--force` to
+replace an existing generated class.
