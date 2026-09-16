@@ -1,0 +1,49 @@
+{
+    "name": "puff/event",
+    "description": "Synchronous, type-safe in-process domain events for Puff",
+    "type": "library",
+    "keywords": [
+        "php",
+        "event",
+        "domain-event",
+        "fiber",
+        "puff"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "puff/di": "dev-main"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.22",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Puff\\Event\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Puff\\Event\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "puff": {
+            "providers": [
+                "Puff\\Event\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit tests",
+        "analyse": "phpstan analyse src tests --level=8 --memory-limit=1G"
+    }
+}
